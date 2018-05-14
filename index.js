@@ -10,13 +10,13 @@ require('./models/Chapter');
 require('./models/Section');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useMongoClient: true }); 
-
+mongoose.connect(keys.mongoURI);
+// mongoose.connect(keys.mongoURI, { useMongoClient: true });
 const app = express();
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 require("./routes/catalogRoutes")(app);
 require("./routes/bookRoutes")(app);
